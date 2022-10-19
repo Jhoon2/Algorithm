@@ -1,0 +1,89 @@
+<html>
+  <!-- Day 2 배열, 수학 -->
+  <head>
+    <meta charset="UTF-8" />
+    <title>두수의 나눗셈, 숫자 비교하기, 분수의 덧셈, 배열 두배 만들기</title>
+  </head>
+
+  <body>
+    <script>
+      // 두수의 나눗넴
+      function solution(num1, num2) {
+        var answer = Math.floor((num1 / num2) * 1000);
+        return answer;
+      }
+      //Math.floor 숫자 정수반환
+
+      function solution(num1, num2) {
+        var answer = parseInt((num1 / num2) * 1000);
+        return answer;
+      }
+      //parseInt 문자열 인자를 반환
+
+      // 1. num1을 num2로 나눈다
+      // 2. 나눈 값에 1000을 곱한다
+      // 3. 그 값의 정수부분을 구한다.
+
+      //숫자 비교하기
+      function solution(num1, num2) {
+        var answer = num1 === num2 ? 1 : -1;
+        return answer;
+      }
+
+      // num1 = num2 : 1
+      // num1 =/ num2 = -1
+
+      //분수의 덧셈
+      function solution(denum1, num1, denum2, num2) {
+        var answer = [];
+        const denum = denum1 * num2 + denum2 * num1;
+        const num = num1 * num2;
+
+        let minNumber;
+        if (denum < num) {
+          minNumber = denum;
+        } else {
+          minNumber = num;
+        }
+
+        while (true) {
+          if (denum % minNumber === 0) {
+            if (num % minNumber === 0) {
+              return [denum / minNumber, num / minNumber];
+            }
+          }
+          minNumber = minNumber - 1;
+        }
+        return answer;
+      }
+
+      //while : 조건이 false이면 반복 멈춤
+
+      // 1. 분모 덧셈
+      // 2. 분자분모의 최대공약수로 나눠줌
+      // 2-1 분자분모중 작은 수를 찾기
+      // 2-2 작은수를 분자분모로 나누기
+      // 2-2-1 둘다 나누어 떨어지면 그 나눈 수가 최대공약수
+      // 2-2-2 안 나누어 떨어지면 작은 수를 1 줄이고 2-2로 돌아가기
+
+      //배열 두배 만들기
+      function solution(numbers) {
+        var answer = [];
+
+        let cnt = 0;
+        while (cnt < numbers.length) {
+          answer.push(numbers[cnt] * 2);
+          cnt = cnt + 1;
+        }
+        for (let cnt = 0; cnt < numbers.length; cnt = cnt + 1) {
+          answer.push(numbers[cnt] * 2);
+        }
+
+        return answer;
+      }
+
+      // 1. numbers에서 원소 꺼내기 ... 메서드?
+      // 2. 원소를 꺼내 2배를 한 후 새 배열에 넣어줘야함
+    </script>
+  </body>
+</html>
