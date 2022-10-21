@@ -19,6 +19,19 @@
         return array.sort((a, b) => a - b)[Math.floor(array.length / 2)];
       }
       //sort((a,b) => a-b) 오름차순
+
+      //최빈값 구하기
+      function solution(array) {
+        const counts = array.reduce(
+          (a, c) => (a[c] ? { ...a, [c]: a[c] + 1 } : { ...a, [c]: 1 }),
+          {}
+        );
+        const max = Math.max(...Object.values(counts));
+        const modes = Object.keys(counts).filter((key) => counts[key] === max);
+        return modes.length === 1 ? +modes[0] : -1;
+      }
+
+      //최빈값 : 반복되는 값
     </script>
   </body>
 </html>
