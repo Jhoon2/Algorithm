@@ -28,7 +28,7 @@
         );
         const max = Math.max(...Object.values(counts));
         const modes = Object.keys(counts).filter((key) => counts[key] === max);
-        return modes.length === 1 ? +modes[0] : -1;
+        return modes.length === 1 ? +modes[0] : -1
       }
 
       //짝수는 싫어요
